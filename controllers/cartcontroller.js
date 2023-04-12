@@ -20,7 +20,8 @@ export const getcartdata = async(req,res)=>{
 
 export const updatecartdata = async (req,res)=>{
     try{
-        const { id, pid } = req.body
+        const { pid } = req.body
+        const id = req.userId
         cart.findOne({"user":id}).then((value) => {
             var cart_list = value.products
             var total_rate = value.total_price
@@ -46,7 +47,7 @@ export const updatecartdata = async (req,res)=>{
 
 export const deletecartdata = async (req,res)=>{
     try{
-        await cart.deleteOne({user:req.body.id})
+        await cart.deleteOne({user:req.userId})
         res.status(200).json({message:"deleted"});
     }catch(error){
         res.status(404).json({message:error.message});
