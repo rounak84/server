@@ -1,5 +1,6 @@
 import express from 'express';
-import cartItems from "../models/cartmodel.js";
+
+import cart from '../models/cart.js'
 
 const router = express.Router();
 
@@ -7,7 +8,7 @@ const router = express.Router();
 export const getcartdata = async(req,res)=>{
     try{        
         // console.log(req.body)
-        const cartitem = await cartItems.find({"creator":req.userId});
+        const cartitem = await cart.find({"user":req.params.uid});
         // console.log(cartitem);
         // req.params vs req.userId
         res.status(200).json(cartitem);

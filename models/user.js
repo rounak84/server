@@ -6,6 +6,7 @@ const userSchema = mongoose.Schema({
   password: { type: String, required: true },
   id: { type: String },
   phone: {type: Number, required : true},
+  address: {type: String, required: true}
 });
 
 export default mongoose.model("User", userSchema);

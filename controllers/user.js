@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"; // to store the user in the browser for a period of time... (else re login everytime)
 
 import UserModel from "../models/user.js";
+import cart from "../models/cart.js";
 
 export const signin = async (req, res) => {
   const { email, password } = req.body; // get the email and password from the body/front end
@@ -34,7 +35,7 @@ export const signin = async (req, res) => {
 };
 
 export const signup = async (req, res) => {
-  const { email, password, name, phone  } = req.body;
+  const { email, password, name, phone, address  } = req.body;
   
   try {
     const existingUser = await UserModel.findOne({ email });
@@ -49,7 +50,15 @@ export const signup = async (req, res) => {
       password: hashedPassword,
       name: name,
       phone: phone,
+      address
     });
+
+    const cartCreation = await cart.create({
+      user: result._id,
+      products: [],
+      total_price: 0
+    });
+
     const token = jwt.sign({ email: result.email, id: result._id }, "test", {
       expiresIn: "1h",
     });
