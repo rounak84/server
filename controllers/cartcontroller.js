@@ -1,6 +1,7 @@
 import express from 'express';
 
 import cart from '../models/cart.js'
+import product from '../models/product.js';
 
 const router = express.Router();
 
@@ -17,25 +18,35 @@ export const getcartdata = async(req,res)=>{
     }
 };
 
-export const createcartdata = async (req,res)=>{
-    const cartdata = req.body;
-
-    const newCartData = new cartItems({
-        ...cartdata,
-        creator: req.userId,
-    });
+export const updatecartdata = async (req,res)=>{
     try{
-        await newCartData.save();
-        (newCartData);
-    }catch(error){
-        res.status(409).json({message:
-        error.message});
+        const { id, pid } = req.body
+        cart.findOne({"user":id}).then((value) => {
+            var cart_list = value.products
+            var total_rate = value.total_price
+            product.findById(pid).then((prod) => {
+                const rate = prod.price
+                total_rate += rate
+                cart_list.push(pid);
+                cart.updateOne({"user":id},{
+                    total_price: total_rate,
+                    products: cart_list
+                }).then((value)=>{
+                    const result = {"response":"Updated Cart"}
+                    res.status(200).json(result)
+                })
+            });
+        });
+    }catch(e){
+        console.log(e);
+        const result = {"response":"Error updating cart"}
+        res.status(404).json(result)
     }
 };
 
 export const deletecartdata = async (req,res)=>{
     try{
-        await cartItems.deleteMany();
+        await cart.deleteOne({user:req.body.id})
         res.status(200).json({message:"deleted"});
     }catch(error){
         res.status(404).json({message:error.message});

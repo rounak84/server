@@ -4,12 +4,13 @@ const router = express.Router();
 import product from "../models/product.js";
 
 router.post("/sell", async (req,res) => {
-    const { id, price, name  } = req.body;
+    const { id, price, name, image  } = req.body;
     try {
         const prod = {
             name,
             price,
-            owner: id
+            owner: id,
+            image
         }
         product.create(prod).then((value) => {
             const result = {"response":"Successful"}
