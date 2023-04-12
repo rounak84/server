@@ -5,6 +5,6 @@ const router = express.Router();
 
 
 router.get("/getproducts", getProducts)
-router.post("/user/buy" ,buyCart)
+router.post("/user/buy" , auth,buyCart)
 
 export default router;

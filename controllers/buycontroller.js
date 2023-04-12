@@ -43,7 +43,8 @@ export const getProducts = async (req, res) => {
 };
 
 export const buyCart = async (req, res) => {
-    const { id } = req.body
+    // const { id } = req.body
+    const id = req.userId
   try {
     const user = await UserModel.findById(id);
     const c = await cart.findOne({"user":id});
