@@ -1,12 +1,11 @@
 function contact() {
   return (
     <>
-      <div>
+      <div className="mt-5">
         <div className="container d-flex justify-content-center">
           <div className="team">
           <h4><b>About us</b></h4>
           <h4>What motivated us to make This</h4>
-
 
           <p>being able to sell...</p>
           <b>Features</b>

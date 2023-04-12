@@ -29,8 +29,8 @@ const AdminProduct = () => {
         //console.log(itemdata);
         
         try {
-            api.createAdminItems(itemdata); // send data to backend            
-            console.log(api.fetchAdminItems());
+            api.createProducts(itemdata); // send data to backend            
+            console.log(api.fetchProducts());
         } catch (error) {
             console.log(error.message);
         }
@@ -60,7 +60,7 @@ const AdminProduct = () => {
                         <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
                         <textarea onChange={handleChange} id="" cols="10" rows="8" name="description" className='product-description' placeholder='Description of product'></textarea>
                     </div>
-                    <div className="container adminProduct-btn">
+                    <div className="container adminProduct-btn mb-2">
                         <button type="submit" className="btn btn-primary">Submit</button>
                     </div>
 

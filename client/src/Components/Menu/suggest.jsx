@@ -58,7 +58,7 @@ function Suggest({item}) {
 
     return (
       <div className="container recipebg">
-      <div className="deal-of-the-day recommendation">
+      <div className="deal-of-the-day recommendation mt-2">
       {
         item.length === 0 ? <h1>Keep Shopping with us!</h1> : <h3>Recommended for you:</h3>
       }

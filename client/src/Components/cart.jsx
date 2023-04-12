@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import * as api from "../api"
 import Cards from "./Menu/cards";
-// TODO: img, price: quantity * price, remove button, a common but now button at top right
 
 const Cart =()=>{
 
     const [cartdata,setCartdata]=useState([]);
-
 
     const BuyNowHandler=()=>{
         console.log("buy now clicked");
