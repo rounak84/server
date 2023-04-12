@@ -10,7 +10,7 @@ router.post("/sell", auth, async (req,res) => {
         const prod = {
             name,
             price,
-            owner: id,
+            owner: req.userId,
             image
         }
         product.create(prod).then((value) => {
