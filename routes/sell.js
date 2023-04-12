@@ -1,9 +1,10 @@
 import express from "express";
+import auth from "../middleware/auth.js";
 const router = express.Router();
 
 import product from "../models/product.js";
 
-router.post("/sell", async (req,res) => {
+router.post("/sell", auth, async (req,res) => {
     const { id, price, name, image  } = req.body;
     try {
         const prod = {
