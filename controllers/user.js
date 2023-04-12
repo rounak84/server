@@ -49,7 +49,7 @@ export const signup = async (req, res) => {
       email,
       password: hashedPassword,
       name: name,
-      phone: phone,
+      phone: parseInt(phone),
       address
     });
 
