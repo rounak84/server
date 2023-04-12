@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const reviewSchema = Schema({
@@ -6,5 +6,5 @@ const reviewSchema = Schema({
     feedback_list:{type:Array,required:true}, 
 },)
 
-const Reviews = mongoose.model('Review',reviewSchema);
-module.export=Reviews
+
+export default mongoose.model("Review", reviewSchema);

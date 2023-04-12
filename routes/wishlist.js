@@ -1,5 +1,5 @@
 import express from "express";
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 import wishlist from '../models/wishlist.js';
 
