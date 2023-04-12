@@ -6,8 +6,8 @@ const router = express.Router();
 
 
 export const addToAuction = async(req,res)=>{
-    const id = req.userId;
-    const { pid, endtime} = req.body
+    // const id = req.userId;
+    const { pid, endtime, id} = req.body
     try{       
         const p = await product.findById(pid) 
         product.findByIdAndUpdate(pid,{
@@ -27,7 +27,7 @@ export const addToAuction = async(req,res)=>{
 };
 
 export const getAuctionProducts = async (req, res) => {
-    const id = req.userId;
+    // const id = req.userId;
     try {
       const prods = await product.find({auction: true});
       // console.log(AdminItem);
@@ -38,9 +38,10 @@ export const getAuctionProducts = async (req, res) => {
   };
 
 export const bidProduct = async (req,res)=>{
-    const id = req.userId;
+    // const id = req.userId;
+    
     try{
-        const { pid, bidamount } = req.body
+        const { pid, bidamount, id } = req.body
         product.findByIdAndUpdate(pid,{
             highestbidder: id,
             currentbid: bidamount

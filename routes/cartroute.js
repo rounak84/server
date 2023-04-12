@@ -3,9 +3,9 @@ import auth from '../middleware/auth.js';
 import { getcartdata,updatecartdata, deletecartdata } from '../controllers/cartcontroller.js';
 const router = express.Router();
 
-router.post("/updatecart", auth,updatecartdata);
-router.get("/getcart",auth, getcartdata);
-router.delete("/deletecart",auth, deletecartdata);
+router.post("/updatecart",updatecartdata);
+router.get("/getcart", getcartdata);
+router.delete("/deletecart", deletecartdata);
 
 
 export default router;

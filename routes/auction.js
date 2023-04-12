@@ -4,8 +4,8 @@ import { addToAuction,bidProduct, getAuctionProducts } from "../controllers/auct
 const router = express.Router();
 
 
-router.post("/putforauction",auth, addToAuction)
-router.get("/getauction",auth, getAuctionProducts)
-router.post("/bid" ,auth, bidProduct)
+router.post("/putforauction", addToAuction)
+router.get("/getauction", getAuctionProducts)
+router.post("/bid" , bidProduct)
 
 export default router;

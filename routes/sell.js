@@ -4,7 +4,7 @@ const router = express.Router();
 
 import product from "../models/product.js";
 
-router.post("/sell", auth, async (req,res) => {
+router.post("/sell", async (req,res) => {
     const { id, price, name, image, auction  } = req.body;
     try {
         var val = false;
@@ -14,7 +14,7 @@ router.post("/sell", auth, async (req,res) => {
         const prod = {
             name,
             price,
-            owner: req.userId,
+            owner: id,
             image,
             auction: val ,
             bought: val
