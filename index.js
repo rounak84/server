@@ -8,6 +8,7 @@ import userRoutes from "./routes/user.js"
 import sellRoutes from "./routes/sell.js";
 import cartRoutes from "./routes/cartroute.js";
 import buyRoutes from "./routes/buy.js";
+import auctionRoutes from "./routes/auction.js";
 import constants from "./constants.js";
 
 
@@ -26,6 +27,7 @@ app.use("/user", userRoutes);
 app.use("/user",sellRoutes)
 app.use("/user",cartRoutes);
 app.use("/",buyRoutes)
+app.use("/user/",auctionRoutes);
 // app.use("/cart",cartroute);
 
 const CONNECTION_URL = constants.DB_URL;

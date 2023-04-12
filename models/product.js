@@ -7,7 +7,10 @@ const productSchema = mongoose.Schema({
     id: { type: String },
     image: {type: String},
     bought: {type: Boolean},
-    auction: {type: Boolean}
+    auction: {type: Boolean},
+    endtime: {type: String},
+    currentbid: {type: Number},
+    highestbidder: {type: Schema.Types.ObjectId}
 });
 
 export default mongoose.model("Product", productSchema);
