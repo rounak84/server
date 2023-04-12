@@ -4,6 +4,7 @@ import { getProducts } from "../controllers/buycontroller.js";
 const router = express.Router();
 
 
-router.post("/getproducts", getProducts)
+router.get("/getproducts", getProducts)
+router.post("/buy",auth ,getProducts)
 
 export default router;
