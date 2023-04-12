@@ -20,10 +20,10 @@ mongoose.connect(DB_Url, {useNewUrlParser: true, useUnifiedTopology: true})
         });
 
 app.post('./reviews',async(req,res)=>{
-    const user_id = app.body.user_id
-    const seller_id = app.body.seller_id
-    var review = app.body.feedback 
-
+    const user_id = req.body.user_id
+    const seller_id = req.body.seller_id
+    var review = req.body.feedback 
+    if(re)
     feedback.create({
         user_id:user_id,
         feedback: review,
