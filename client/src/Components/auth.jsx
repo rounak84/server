@@ -8,10 +8,11 @@ import "../Components/Css/auth.css";
 import * as api from "../api/index.js"
 
 const initialState = {
-  userName: "",  
+  name: "",  
   email: "",
   password: "", 
-  uType: "", 
+  address: "",
+  phone: ""
 };
 
 const Auth = () => {
@@ -22,7 +23,7 @@ const Auth = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value }); // set the value of a particular input
-    // console.log(formData)
+    console.log(formData)
   };
 
   const switchMode = () => {
@@ -50,7 +51,7 @@ const Auth = () => {
           const response = res.data;
           localStorage.setItem("profile", JSON.stringify({ response }));
         });
-      navigate("/");
+      // navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -96,7 +97,7 @@ const Auth = () => {
                                 className="form-control"
                                 onChange={handleChange}
                                 placeholder="Enter Username"
-                                name="userName"
+                                name="name"
                               />
                             </div>
                           </div>
@@ -137,22 +138,48 @@ const Auth = () => {
                             />
                           </div>
                         </div>
-                        
-                        {isSignup && (
-                        <div className="row">  
-                      <div className="form-check col">
-                        <input className="form-check-input" type="radio" onChange={handleChange} name="uType" id="buyerType" value="buyer"/>
-                        <label className="form-check-label" for="flexRadioDefault1">
-                          Buyer
-                        </label>
-                      </div>
-                      <div className="form-check col">
-                        <input className="form-check-input" type="radio" onChange={handleChange} name="uType" id="sellerType" value="seller"/>
-                        <label className="form-check-label" for="flexRadioDefault2">
-                          Seller
-                        </label>
-                      </div>
-                      </div>)}
+
+                        {
+                        isSignup && (
+                        <div className="col-12">
+                          <label>
+                            address<span className="text-danger">*</span>
+                          </label>
+                          <div className="input-group">
+                            <div className="input-group-text">
+                              <i className="bi bi-lock-fill"></i>
+                            </div>
+                            <input
+                              type="test"
+                              className="form-control"
+                              onChange={handleChange}
+                              placeholder="Enter Address"
+                              name="address"
+                            />
+                          </div>
+                        </div>       
+                        )}
+
+                      {
+                      isSignup && (
+                        <div className="col-12">
+                          <label>
+                            Phone<span className="text-danger">*</span>
+                          </label>
+                          <div className="input-group">
+                            <div className="input-group-text">
+                              <i className="bi bi-lock-fill"></i>
+                            </div>
+                            <input
+                              type="text"
+                              className="form-control"
+                              onChange={handleChange}
+                              placeholder="Enter Ph No"
+                              name="phone"
+                            />
+                          </div>
+                        </div> 
+                        )}                 
 
                       <div className="col-12">
                           <button

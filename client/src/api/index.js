@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API = axios.create({ baseURL: "http://localhost:1300" }); // server url
+const API = axios.create({ baseURL: "http://localhost:8080" }); // server url
 
 API.interceptors.request.use((req) => {
     // will run for each request to send token to server (to know if user is logged in or not)
