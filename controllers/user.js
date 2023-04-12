@@ -59,6 +59,11 @@ export const signup = async (req, res) => {
       total_price: 0
     });
 
+    // const reviewCreation = await review.create({
+    //   seller_id: result._id,
+    //   reviews: [],
+    // })
+
     const token = jwt.sign({ email: result.email, id: result._id }, "test", {
       expiresIn: "1h",
     });

@@ -8,11 +8,23 @@ const router = express.Router();
 
 export const getcartdata = async(req,res)=>{
     try{        
-        // console.log(req.body)
-        const cartitem = await cart.find({"user":req.params.uid});
-        // console.log(cartitem);
+        // console.log("Hello")
+        // console.log(req.params.uid);
+        const c = await cart.findOne({"user":req.userId});
+        console.log(c);
+        const prods = c.products
+        var result = {}
+        await prods.forEach( async p => {
+            await product.findById(p).then(async (value)=>{
+                const key = value.name + ' - ' + value._id
+                result[key] = value.price
+                // console.log(value.name);
+            })
+        });
+        setTimeout(() => {  
+            res.status(200).json(result);
+        },5000 );
         // req.params vs req.userId
-        res.status(200).json(cartitem);
     }catch(error){
         res.status(404).json({message:error.message});
     }
