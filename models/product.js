@@ -5,7 +5,9 @@ const productSchema = mongoose.Schema({
     name: { type: String, required: true },
     price: { type: String, required: true },
     id: { type: String },
-    image: {type: String}
+    image: {type: String},
+    bought: {type: Boolean},
+    auction: {type: Boolean}
 });
 
 export default mongoose.model("Product", productSchema);

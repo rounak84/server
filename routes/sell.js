@@ -11,7 +11,9 @@ router.post("/sell", auth, async (req,res) => {
             name,
             price,
             owner: req.userId,
-            image
+            image,
+            auction: false,
+            bought: false
         }
         product.create(prod).then((value) => {
             const result = {"response":"Successful"}
