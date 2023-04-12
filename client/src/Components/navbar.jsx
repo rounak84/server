@@ -41,7 +41,6 @@ function Navbar() {
         <div>
             <nav className="navbar navbar-expand-lg bg-light">
 
-                {/* start of navbar */}
                 <div className="container-fluid">
                     <div className="img-container">
                         <img src={logo} alt="" className="face facelogo" />
@@ -62,23 +61,19 @@ function Navbar() {
                                 <Link to="/" className="nav-link active">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/menu" className="nav-link active">Menu</Link>
+                                <Link to="/menu" className="nav-link active">Shop</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/aboutus" className="nav-link active">About us</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/contactus" className="nav-link active">Contactus</Link>
-                            </li>
-                            {                                
-                                user?.response.result.utype === "seller" &&
+                            </li>                               
+                                {/* user?.response.result.utype === "seller" && */}
                             <li className="nav-item">
-                                <Link to="/admin" className="nav-link active">Admin</Link>
+                                <Link to="/admin" className="nav-link active">Sell</Link>
                             </li>
-}
-                            {/* <li className="nav-item">
-                                <Link to="/owner" className="nav-link active">Owner</Link>
-                            </li> */}
+                            
                         </ul>
                         <ul>
 
@@ -108,7 +103,6 @@ function Navbar() {
                         </form> */}
                     </div>
                 </div>
-                {/* End of navbar */}
             </nav>
 
 
